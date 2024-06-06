@@ -7,11 +7,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question: question_params[:question], answer: question_params[:answer])
     category = Category.find_by(id: question_params[:category].to_i)
+    question = Question.new(question: question_params[:question], answer: question_params[:answer])
+    
 
     if question.save
-      queston.categories << category unless category.nil?
+      question.categories << category unless category.nil?
       render json: question, status: :created
     else
       render json: question.errors, status: :unprocessable_entity
@@ -21,6 +22,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.permit(:question, :answer, :catogory)
+    params.permit(:question, :answer, :category)
   end
 end
