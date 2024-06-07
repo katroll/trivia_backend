@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'questions#index'
 
+  get "/me/:user_id", to: "users#show"
+
   resources :questions
   resources :categories
   resources :users, only: [:update]
