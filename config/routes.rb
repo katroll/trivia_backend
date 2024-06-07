@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'questions#index'
 
   get "/me/:user_id", to: "users#show"
-  post "/signin", to: "sessions#create"
-  delete "/signout", to: "sessions#destroy"
+  post "/sign_in", to: "sessions#create"
+  delete "/sign_out", to: "sessions#destroy"
 
   resources :questions
   resources :categories
