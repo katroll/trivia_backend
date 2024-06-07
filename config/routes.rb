@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'questions#index'
 
   get '/questions', to: 'questions#index'
+  post '/questions', to 'questions#create'
 
   # resources :questions
   resources :categories
