@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root 'questions#index'
+  get 'csrf_token', to: 'application#csrf_token'
+  resources :sessions, only: [:create]
 
-  get "/me/:user_id", to: "users#show"
-  post "/sign_in", to: "sessions#create"
-  delete "/sign_out", to: "sessions#destroy"
+  delete :logout, to: "sessions#logout"
+  get "logged_in/:user_id", to: "sessions#logged_in"
 
   resources :questions
   resources :categories
