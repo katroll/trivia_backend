@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_07_205652) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_01_174623) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_205652) do
     t.string "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "bonus"
+    t.boolean "final_trivia"
+    t.boolean "double_jeopardy"
   end
 
   create_table "users", force: :cascade do |t|
