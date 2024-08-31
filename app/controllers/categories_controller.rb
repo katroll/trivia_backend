@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    render json: Category.all, status: :ok
+    ordered_categories = Category.order(:name)
+    render json: ordered_categories, status: :ok
   end
 end
