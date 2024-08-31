@@ -3,7 +3,7 @@ require 'csv'
 class TriviaQuestionImport
 
   def import
-    all_rows = CSV.read("lib/question_import/formatted-3.csv", headers: true, col_sep: ",", header_converters: :symbol)
+    all_rows = CSV.read("lib/question_import/formatted-5.csv", headers: true, col_sep: ",", header_converters: :symbol)
 
     all_rows.each do |row|
       question = row[:question]
