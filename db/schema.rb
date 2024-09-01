@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_31_170507) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_01_034140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_31_170507) do
     t.boolean "bonus"
     t.boolean "final_trivia"
     t.boolean "double_jeopardy"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_questions_on_deleted_at"
   end
 
   create_table "users", force: :cascade do |t|

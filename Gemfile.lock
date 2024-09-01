@@ -154,6 +154,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
+    paranoia (2.6.4)
+      activerecord (>= 5.1, < 7.2)
     pg (1.5.5)
     psych (5.1.2)
       stringio
@@ -261,6 +263,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  paranoia (~> 2.4)
   pg (~> 1.1)
   puma (>= 5.0)
   rack-cors

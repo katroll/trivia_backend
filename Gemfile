@@ -10,6 +10,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
 gem "bcrypt", "~> 3.1.20"
+gem 'paranoia', '~> 2.4'
 
 gem 'rack-cors', require: 'rack/cors'
 

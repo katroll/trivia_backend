@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    questions = Question.includes(:categories).all
+    questions = Question.active.includes(:categories).all
     render json: questions.as_json(include: :categories), status: :ok
   end
 
@@ -29,6 +29,18 @@ class QuestionsController < ApplicationController
 
     if question&.save!
       render json: question.as_json(include: :categories), status: :ok
+    else
+      render status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    question = Question.find_by(id: params[:id])
+
+    if question&.destroy
+      head :no_content
+    else
+      render json: { error: "Failed to delete question" }, status: :unprocessable_entity
     end
   end
 
